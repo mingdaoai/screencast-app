@@ -8,11 +8,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>Screen Recorder</h1>
+        <h1>Screen and Camera Recorder</h1>
         <div class="button-group">
-            <button id="startBtn">Start Recording</button>
-            <button id="stopBtn" disabled>Stop Recording</button>
-            <button id="downloadLink" style="display: none;">Download Video</button>
+            <button id="startCameraBtn">Record Camera</button>
+            <button id="startScreenBtn">Record Screen</button>
+            <button id="startBothBtn">Record Both</button>
+            <button id="stopBtn" style="display: none;">Stop Recording</button>
+        </div>
+        <div class="button-group">
+            <button id="screenDownloadBtn" disabled>Download Screen</button>
+            <button id="cameraDownloadBtn" disabled>Download Camera</button>
         </div>
         <div class="video-container">
             <div class="main-video">
