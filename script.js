@@ -10,6 +10,15 @@ const bothBtn = document.getElementById('bothBtn');
 const stopBtn = document.getElementById('stopBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 
+const videoContainer = document.getElementById('videoContainer');
+const splashScreen = document.getElementById('splashScreen');
+
+splashScreen.src = 'SplashScreen.jpg';
+splashScreen.alt = 'Splash Screen';
+splashScreen.style.maxWidth = '100%';
+splashScreen.style.height = 'auto';
+splashScreen.style.display = 'block';
+
 screenBtn.onclick = () => startRecording('screen');
 cameraBtn.onclick = () => startRecording('camera');
 bothBtn.onclick = () => startRecording('both');
@@ -64,6 +73,8 @@ async function startRecording(type) {
         }, 100);
     } catch (error) {
         console.error('Error:', error);
+        showSplashScreen();
+        hideVideoContainer();
     }
 }
 
@@ -124,7 +135,36 @@ function setButtonsState(isRecording) {
     stopBtn.style.display = isRecording ? 'inline-block' : 'none';
     downloadBtn.style.display = isRecording ? 'none' : 
         ((screenChunks && screenChunks.length > 0) || (cameraChunks && cameraChunks.length > 0)) ? 'inline-block' : 'none';
+
+    if (isRecording) {
+        hideSplashScreen();
+        showVideoContainer();
+    } else {
+        showSplashScreen();
+        hideVideoContainer();
+    }
 }
 
-// Initial button state
+// Initial button state and show splash screen
 setButtonsState(false);
+
+function showSplashScreen() {
+    splashScreen.style.display = 'flex';
+}
+
+function hideSplashScreen() {
+    splashScreen.style.display = 'none';
+}
+
+function showVideoContainer() {
+    videoContainer.style.display = 'flex';
+}
+
+function hideVideoContainer() {
+    videoContainer.style.display = 'none';
+}
+
+// Initial state
+document.addEventListener('DOMContentLoaded', () => {
+    setButtonsState(false);
+});
