@@ -1,6 +1,6 @@
-# Screencast Software
+# Screencast App
 
-This project allows you to record your screen and camera simultaneously. 
+You may find yourself in a situation where you want to share your screen with someone. This project allows you to record your screen and camera simultaneously. 
 
 ## Features
 
