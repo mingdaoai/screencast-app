@@ -1,14 +1,14 @@
-# Screen and Camera Recorder
+# Screencast Software
 
-This project allows you to record your screen and camera simultaneously. It uses the `MediaRecorder` API to record the screen and camera streams, and the `MediaStream` API to display the streams.
+This project allows you to record your screen and camera simultaneously. 
 
 ## Features
 
 - Record screen and camera simultaneously
 - Download recorded videos
-- Stop recording
 
-The prompt for AI is:
+## AI Prompt
+This project was created using Cursor, an AI code editor. The initial prompt for AI was:
 
 - I want to create a screen and camera recorder that allows me to record my screen and camera simultaneously. 
 - I want to be able to download the recorded videos separately after stopping the recording.

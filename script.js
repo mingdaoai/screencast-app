@@ -69,7 +69,7 @@ async function startRecording(type) {
         }
 
         setTimeout(() => {
-            setButtonsState(true);
+            setRecordingState(true);
         }, 100);
     } catch (error) {
         console.error('Error:', error);
@@ -87,12 +87,16 @@ function stopRecording() {
         cameraRecorder.stop();
         cameraRecorder.stream.getTracks().forEach(track => track.stop());
     }
-    screenPreview.srcObject = null;
-    cameraPreview.srcObject = null;
-    screenPreview.style.display = 'none';
-    cameraPreview.style.display = 'none';
+    if (screenPreview) {
+        screenPreview.srcObject = null;
+        screenPreview.style.display = 'none';
+    }
+    if (cameraPreview) {
+        cameraPreview.srcObject = null;
+        cameraPreview.style.display = 'none';
+    }
     setTimeout(() => {
-        setButtonsState(false);
+        setRecordingState(false);
     }, 100);
 }
 
@@ -128,7 +132,7 @@ function download() {
     }
 }
 
-function setButtonsState(isRecording) {
+function setRecordingState(isRecording) {
     screenBtn.style.display = isRecording ? 'none' : 'inline-block';
     cameraBtn.style.display = isRecording ? 'none' : 'inline-block';
     bothBtn.style.display = isRecording ? 'none' : 'inline-block';
@@ -146,7 +150,7 @@ function setButtonsState(isRecording) {
 }
 
 // Initial button state and show splash screen
-setButtonsState(false);
+setRecordingState(false);
 
 function showSplashScreen() {
     splashScreen.style.display = 'flex';
@@ -166,5 +170,5 @@ function hideVideoContainer() {
 
 // Initial state
 document.addEventListener('DOMContentLoaded', () => {
-    setButtonsState(false);
+    setRecordingState(false);
 });
