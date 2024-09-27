@@ -61,11 +61,13 @@ async function startRecording(type) {
 
         if (type === 'both') {
             cameraPreview.style.display = 'block';
+            cameraPreview.classList.add('picture-in-picture');
         } else if (type === 'camera') {
             screenPreview.style.display = 'none';
             cameraPreview.style.display = 'block';
-            cameraPreview.style.position = 'static';
-            cameraPreview.style.width = '100%';
+            cameraPreview.classList.remove('picture-in-picture');
+        } else if (type === 'screen') {
+            cameraPreview.style.display = 'none';
         }
 
         setTimeout(() => {
@@ -94,6 +96,7 @@ function stopRecording() {
     if (cameraPreview) {
         cameraPreview.srcObject = null;
         cameraPreview.style.display = 'none';
+        cameraPreview.classList.remove('picture-in-picture');
     }
     setTimeout(() => {
         setRecordingState(false);

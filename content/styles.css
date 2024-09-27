@@ -15,7 +15,7 @@ body, html {
 
 /* Record controls styles */
 .record-controls-container {
-    padding: 10px;
+    padding: 30px;
 }
 
 .record-controls {
@@ -54,6 +54,7 @@ button:hover {
 
 /* Video container styles */
 .video-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,10 +62,29 @@ button:hover {
     height: 100%;
 }
 
-video {
+video#screenPreview {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+}
+
+video#cameraPreview {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+video#cameraPreview.picture-in-picture {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    max-width: 30%;
+    max-height: 30%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
 /* Splash screen styles */
